@@ -1,4 +1,10 @@
 import tkinter as tk
+from PIL import ImageTk,Image
+import numpy as np
+import array
+import os
+import csv
+
 """
 Task 2
 Read the map2.txt file and convert to a map that you can navigate a
@@ -18,7 +24,58 @@ w.geometry("925x475")
 w.attributes('-topmost',True)
 c = tk.Canvas(height=475,width=900,bg="#ffdddd")
 c.pack()
-f = open('map1.txt')
+f = open('map2.txt')
 
 
-w.mainloop()
+
+csv_filename = 'map2.txt'
+with open(csv_filename) as f:
+    reader = csv.reader(f)
+    lst = list(reader)
+    print(lst)
+#map2 = np.loadtxt('map2.txt', skiprows=1, delimiter=',')
+#map2=np.genfromtxt("map2.txt", dtype="int")
+#print(map2)
+
+"""img1 = tk.PhotoImage(file="assets/map.plains.png")
+img2 = tk.PhotoImage(file="assets/map.forest.png")
+img3 = tk.PhotoImage(file="assets/map.hills.png")
+img4 = tk.PhotoImage(file="assets/map.mountain.png")
+img5 = tk.PhotoImage(file="assets/map.swamp.png")
+img6 = tk.PhotoImage(file="assets/map.city.png")
+
+def getImage(x,y):
+    img0 = Image.open("assets/map.water.png").convert("RGBA")
+    img1 = Image.open("assets/map.plains.png").convert("RGBA")
+    img2 = Image.open("assets/map.forest.png").convert("RGBA")
+    img3 = Image.open("assets/map.hills.png").convert("RGBA")
+    img4 = Image.open("assets/map.mountain.png").convert("RGBA")
+    img5 = Image.open("assets/map.swamp.png").convert("RGBA")
+    img6 = Image.open("assets/map.city.png").convert("RGBA")
+
+    if f[x][y]==0:
+        return ImageTk.PhotoImage(img0)
+    if f[x][y]==1:
+        return ImageTk.PhotoImage(img1)
+    if f[x][y]==2:
+        return ImageTk.PhotoImage(img2)
+    if f[x][y]==3:
+        return ImageTk.PhotoImage(img3)
+    if f[x][y]==4:
+        return ImageTk.PhotoImage(img4)
+    if f[x][y]==5:
+        return ImageTk.PhotoImage(img5)
+    if f[x][y]==6:
+        return ImageTk.PhotoImage(img6)
+
+
+map = [ (0,0), (0,1) , (0,2) , (0,3) , (0,4) , (0,5),(0, 6),(0, 7),(0, 8),(0, 9),(0, 10)]
+walls = []
+img = [[]]
+for i in range(12):
+    for j in range(11):
+        print(i,j)
+        img.append(getImage(i,j))
+        walls.append(c.create_image(i*64+32,j*64+32,image=img[-1]))
+
+w.mainloop()"""
