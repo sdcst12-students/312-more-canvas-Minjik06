@@ -4,6 +4,7 @@ import numpy as np
 import array
 import os
 import csv
+import pandas as pd
 
 """
 Task 2
@@ -20,9 +21,9 @@ Legend:
 6 City
 """
 w = tk.Tk()
-w.geometry("925x475")
+w.geometry("925x1500")
 w.attributes('-topmost',True)
-c = tk.Canvas(height=475,width=900,bg="#ffdddd")
+c = tk.Canvas(height=925,width=1500,bg="#ffdddd")
 c.pack()
 f = open('map2.txt')
 
@@ -33,11 +34,13 @@ with open(csv_filename) as f:
     reader = csv.reader(f)
     lst = list(reader)
     print(lst)
+    for i in range(len(lst)):
+        print(i,lst[i])
 #map2 = np.loadtxt('map2.txt', skiprows=1, delimiter=',')
 #map2=np.genfromtxt("map2.txt", dtype="int")
 #print(map2)
 
-"""img1 = tk.PhotoImage(file="assets/map.plains.png")
+img1 = tk.PhotoImage(file="assets/map.plains.png")
 img2 = tk.PhotoImage(file="assets/map.forest.png")
 img3 = tk.PhotoImage(file="assets/map.hills.png")
 img4 = tk.PhotoImage(file="assets/map.mountain.png")
@@ -52,30 +55,35 @@ def getImage(x,y):
     img4 = Image.open("assets/map.mountain.png").convert("RGBA")
     img5 = Image.open("assets/map.swamp.png").convert("RGBA")
     img6 = Image.open("assets/map.city.png").convert("RGBA")
-
-    if f[x][y]==0:
+    print(x,y)
+    if lst[x][y]=='0':
         return ImageTk.PhotoImage(img0)
-    if f[x][y]==1:
+    if lst[x][y]=='1':
         return ImageTk.PhotoImage(img1)
-    if f[x][y]==2:
+    if lst[x][y]=='2':
         return ImageTk.PhotoImage(img2)
-    if f[x][y]==3:
+    if lst[x][y]=='3':
         return ImageTk.PhotoImage(img3)
-    if f[x][y]==4:
+    if lst[x][y]=='4':
         return ImageTk.PhotoImage(img4)
-    if f[x][y]==5:
+    if lst[x][y]=='5':
         return ImageTk.PhotoImage(img5)
-    if f[x][y]==6:
+    if lst[x][y]=='6':
         return ImageTk.PhotoImage(img6)
 
 
-map = [ (0,0), (0,1) , (0,2) , (0,3) , (0,4) , (0,5),(0, 6),(0, 7),(0, 8),(0, 9),(0, 10)]
+map = []
 walls = []
-img = [[]]
-for i in range(12):
-    for j in range(11):
-        print(i,j)
+img = []
+j=0
+i=0
+print(len(lst))
+for j in range(len(lst)-1):
+    for i in range(len(lst[j])-1):
+        print(i,j,lst[j])
         img.append(getImage(i,j))
-        walls.append(c.create_image(i*64+32,j*64+32,image=img[-1]))
+        walls.append(c.create_image(i*30+32,j*30+32,image=img[-1]))
 
-w.mainloop()"""
+       
+
+w.mainloop()
