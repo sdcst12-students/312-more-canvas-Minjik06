@@ -8,10 +8,12 @@ Read the map1.txt file and convert to a map that you can navigate a
 rectangle object through.
 """
 w = tk.Tk()
-w.geometry("925x475")
+w.geometry("1000x1000")
 w.attributes('-topmost',True)
-c = tk.Canvas(height=475,width=900,bg="#ffdddd")
+c = tk.Canvas(height=1500,width=1500,bg="#ffdddd")
 c.pack()
+
+c.create_rectangle(300,300,320,340, fill='white')
 
 
 csv_filename = 'map1.txt'
@@ -22,12 +24,17 @@ with open(csv_filename) as f:
     for i in range(len(lst)):
         print(i,lst[i])
 
+lis=""
 for i in range(15):
-    c = f"{c}\n{lst[i][0]}"
-print(c)
+    lis = f"{lis}\n{lst[i][0]}"
+print(lis)
 
-l=tk.Label(w, width=100, text=c)
-l.pack()
+
+c.create_text(400, 100, text=lis, fill="black",font=('Helvetica 45 bold'))
+c.pack()
+
+
+
 w.mainloop()
 
 
