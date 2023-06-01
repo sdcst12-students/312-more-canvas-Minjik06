@@ -12,11 +12,15 @@ w.geometry("1000x1000")
 w.attributes('-topmost',True)
 c = tk.Canvas(height=1500,width=1500,bg="#ffdddd")
 c.pack()
+f=open('map1')
+map1=f.readlines
 
-c.create_rectangle(300,300,320,340, fill='white')
+for i in range(1,15):
+    for fd
+#c.create_rectangle(300,300,320,340, fill='white')
 
 
-csv_filename = 'map1.txt'
+"""sv_filename = 'map1.txt'
 with open(csv_filename) as f:
     reader = csv.reader(f)
     lst = list(reader)
@@ -27,11 +31,11 @@ with open(csv_filename) as f:
 lis=""
 for i in range(15):
     lis = f"{lis}\n{lst[i][0]}"
-print(lis)
+print(lis)"""
 
 
-c.create_text(400, 100, text=lis, fill="black",font=('Helvetica 45 bold'))
-c.pack()
+#c.create_text(400, 100, text=lis, fill="black",font=('Helvetica 45 bold'))
+#c.pack()
 
 
 
