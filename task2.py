@@ -78,10 +78,11 @@ img = []
 j=0
 i=0
 print(len(lst))
-for j in range(len(lst)-1):
-    for i in range(len(lst[j])-1):
-        print(i,j,lst[j])
-        img.append(getImage(i,j))
+for j in range(len(lst)):
+    for i in range(len(lst[j])):
+        if j == 0:
+            print(i,j,lst[j])
+        img.append(getImage(j,i))
         walls.append(c.create_image(i*30+32,j*30+32,image=img[-1]))
 
        
