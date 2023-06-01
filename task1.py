@@ -22,6 +22,19 @@ with open(csv_filename) as f:
     for i in range(len(lst)):
         print(i,lst[i])
 
+for i in range(15):
+    c = f"{c}\n{lst[i][0]}"
+print(c)
+
+l=tk.Label(w, width=100, text=c)
+l.pack()
+w.mainloop()
+
+
+
+#or i in range(29):
+
+
 
 """f = open('map1.txt')
 f=f.readlines()
