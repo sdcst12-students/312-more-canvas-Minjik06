@@ -24,7 +24,6 @@ map1=f.readlines()
     img2 = img.crop([xi,yi,xi+64,yi+64])
     return ImageTk.PhotoImage(img2)"""
 
-
 walls=[]
 img = [[]]
 k=0
@@ -39,8 +38,8 @@ for i in range(1,2):
             if map1[i][j]=="*":
                 print(f"map1: {j},{i}")
                 c.create_rectangle(j+p,i+k,j+p+30,i+k+30, fill='green')
-                
-                
+            
+    
 #c.create_rectangle(i+p,10+j+k,i+p+5,10+j+k+5, fill='green')
 #c.create_rectangle(300,300,320,340, fill='white')
 """
