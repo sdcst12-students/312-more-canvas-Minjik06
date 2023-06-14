@@ -12,9 +12,9 @@ y=0
 
 w = tk.Tk()
 w.attributes("-topmost",True)
-w.geometry("1000x1000")
+w.geometry("500x500")
 
-c = tk.Canvas(width=380,height=280)
+c = tk.Canvas(width=500,height=500)
 c.pack()
 i=0
 #840*283
